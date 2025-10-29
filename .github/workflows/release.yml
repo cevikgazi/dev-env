@@ -1,9 +1,4 @@
 
----
-
-## 2. `.github/workflows/release.yml` (Otomatik ZIP)
-
-```yaml
 name: Release dev-env
 
 on:
