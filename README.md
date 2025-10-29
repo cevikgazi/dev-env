@@ -27,3 +27,12 @@
 ### 1. ZIP İndir (Otomatik Release)
 ```bash
 curl -L -o dev-env.zip https://github.com/cevikgazi/dev-env/releases/latest/download/dev-env.zip
+```
+### 2. Kur & Başlat
+
+
+```bash
+unzip dev-env.zip -d dev-env
+cd dev-env
+chmod +x setup.sh
+./setup.sh
