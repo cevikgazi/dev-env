@@ -1,0 +1,30 @@
+
+---
+
+## 2. `.github/workflows/release.yml` (Otomatik ZIP)
+
+```yaml
+name: Release dev-env
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run notebook to generate ZIP
+        run: |
+          pip install nbconvert jupyter
+          jupyter nbconvert --to python dev-env.ipynb
+          python dev-env.py
+
+      - name: Upload ZIP
+        uses: softprops/action-gh-release@v2
+        with:
+          files: /home/runner/work/dev-env/dev-env/dev-env.zip
+          tag_name: ${{ github.ref_name }}
